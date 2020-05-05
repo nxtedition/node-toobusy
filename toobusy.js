@@ -164,8 +164,10 @@ function start() {
 
   }, interval);
 
-  // Don't keep process open just for this timer.
-  checkInterval.unref();
+  if (checkInterval.unref) {
+    // Don't keep process open just for this timer.
+    checkInterval.unref();
+  }
 }
 
 // Kickoff the checking!
